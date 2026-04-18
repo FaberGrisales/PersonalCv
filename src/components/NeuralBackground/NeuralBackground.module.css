@@ -1,0 +1,38 @@
+.neuralBg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.95;
+}
+
+.mouseGlow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 520px;
+  height: 520px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--accent) 22%, transparent) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+  transform: translate3d(var(--mx, -1000px), var(--my, -1000px), 0) translate(-50%, -50%);
+  transition: opacity 0.3s;
+  mix-blend-mode: screen;
+}
+
+[data-theme='light'] .mouseGlow {
+  mix-blend-mode: multiply;
+}
+
+.scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--accent);
+  z-index: 100;
+  box-shadow: 0 0 10px var(--accent);
+  transition: width 0.1s linear;
+}

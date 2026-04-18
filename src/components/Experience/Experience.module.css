@@ -1,0 +1,152 @@
+.expList { display: flex; flex-direction: column; }
+
+.exp {
+  display: grid;
+  grid-template-columns: 140px 1fr auto;
+  gap: 24px;
+  padding: clamp(28px, 4vw, 44px) 0;
+  border-top: 1px solid var(--line);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.exp:last-child { border-bottom: 1px solid var(--line); }
+.exp:hover { background: color-mix(in oklab, var(--accent) 6%, transparent); }
+
+.expYear {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  padding-top: 6px;
+}
+
+.expRole {
+  font-family: var(--serif);
+  font-size: clamp(24px, 3.4vw, 40px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.expRoleCompany {
+  font-style: italic;
+  color: var(--fg-dim);
+  font-size: 0.7em;
+}
+
+.expCompany {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.expCompany :global(.ti) { width: 16px; height: 16px; opacity: 0.9; }
+
+.tagItem { display: inline-flex; align-items: center; gap: 6px; }
+.sep { opacity: 0.4; }
+
+.expDetails {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s ease, opacity 0.5s ease, margin-top 0.5s ease;
+  opacity: 0;
+  margin-top: 0;
+}
+
+.open .expDetails {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 12px;
+}
+
+.expDetailsInner { overflow: hidden; }
+
+.expBullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 16px 0 20px;
+  max-width: 720px;
+}
+
+.expBullets li {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--fg-dim);
+  padding-left: 20px;
+  position: relative;
+}
+
+.expBullets li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-family: var(--mono);
+}
+
+.expAchievement {
+  display: flex;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: color-mix(in oklab, var(--accent) 8%, transparent);
+  max-width: 720px;
+}
+
+.badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.expAchievement p { font-size: 14px; line-height: 1.55; color: var(--fg); }
+
+.expToggle {
+  align-self: start;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+.exp:hover .expToggle,
+.open .expToggle {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.expToggle svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.open .expToggle svg { transform: rotate(45deg); }
+
+@media (max-width: 720px) {
+  .exp { grid-template-columns: 1fr auto; gap: 16px; }
+  .expYear { grid-column: 1 / -1; padding-top: 0; }
+}

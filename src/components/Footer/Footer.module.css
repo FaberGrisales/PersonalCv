@@ -1,0 +1,16 @@
+.footer {
+  padding: 40px clamp(20px, 4vw, 56px);
+  border-top: 1px solid var(--line);
+  position: relative;
+  z-index: 2;
+}
+
+.inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}

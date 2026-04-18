@@ -1,0 +1,205 @@
+.contact { padding: clamp(60px, 10vw, 140px) 0; }
+
+.contactStage {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: start;
+}
+
+@media (max-width: 900px) { .contactStage { grid-template-columns: 1fr; } }
+
+.buildLabel { color: var(--fg-muted); margin-bottom: 18px; }
+
+.cxSentence {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(28px, 4.4vw, 56px);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 14px;
+}
+
+.cxInput {
+  font: inherit;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px dashed var(--fg-muted);
+  color: var(--accent);
+  min-width: 200px;
+  padding: 0 4px 2px;
+  font-style: italic;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.cxInput::placeholder { color: var(--fg-muted); font-style: italic; opacity: 0.7; }
+.cxInput:focus { border-bottom-color: var(--accent); }
+
+.cxPick {
+  font: inherit;
+  font-style: italic;
+  color: var(--accent);
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1.5px solid color-mix(in oklab, var(--accent) 50%, transparent);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+  background: color-mix(in oklab, var(--accent) 6%, transparent);
+}
+
+.cxPick svg { width: 14px; height: 14px; }
+.cxPick:hover, .cxPickActive { background: color-mix(in oklab, var(--accent) 14%, transparent); border-color: var(--accent); }
+
+.cxOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+  min-height: 44px;
+}
+
+.cxOpt {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--fg-dim);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cxOpt :global(.ti) { width: 14px; height: 14px; }
+
+.cxOpt:hover, .cxOptActive {
+  color: var(--accent-ink);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.cxOpt:hover :global(.ti), .cxOptActive :global(.ti) { filter: none; }
+
+.cxActions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.cxStatus { color: var(--fg-muted); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
+.sent { color: var(--accent) !important; }
+
+/* CARD */
+.cxCard {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  padding: 28px;
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cxCardHead {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.cxAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.cxPulse {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--accent);
+  border: 2px solid var(--card);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent) 60%, transparent); }
+  70% { box-shadow: 0 0 0 12px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+.cxCardTitle { font-family: var(--serif); font-size: 20px; letter-spacing: -0.01em; }
+
+.onlineDot { color: var(--accent); }
+
+.cxClock {
+  font-size: 48px;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.clockTz { font-size: 11px; color: var(--fg-muted); letter-spacing: 0.12em; margin-left: 8px; }
+
+.cxLinks { display: flex; flex-direction: column; gap: 2px; }
+
+.cxLink {
+  display: grid;
+  grid-template-columns: 24px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 12px;
+  margin: 0 -12px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.cxLink :global(.ti) { width: 20px; height: 20px; }
+.cxLink:hover { background: color-mix(in oklab, var(--accent) 10%, transparent); }
+
+.cxLbl { display: block; color: var(--fg-muted); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 2px; }
+.cxVal { font-family: var(--sans); font-size: 14px; color: var(--fg); }
+
+.cxArr { width: 14px; height: 14px; color: var(--fg-muted); transition: all 0.2s; }
+.cxLink:hover .cxArr { color: var(--accent); transform: translate(2px, -2px); }
+
+.cxFoot {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--fg-muted);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}

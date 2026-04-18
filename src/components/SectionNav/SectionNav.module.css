@@ -1,0 +1,78 @@
+.nav {
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+@media (max-width: 1100px) { .nav { display: none; } }
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px 8px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: color-mix(in oklab, var(--bg) 85%, transparent);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  color: var(--fg-muted);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  border-color: var(--fg-muted);
+  color: var(--fg);
+  background: color-mix(in oklab, var(--bg) 95%, transparent);
+}
+
+.active {
+  border-color: var(--accent);
+  color: var(--fg);
+  background: color-mix(in oklab, var(--accent) 10%, var(--bg));
+}
+
+.num {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--fg-muted);
+  transition: color 0.25s;
+}
+
+.active .num,
+.btn:hover .num {
+  color: var(--accent);
+}
+
+.label {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.25s;
+}
+
+.indicator {
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.25s, transform 0.25s;
+  transform: scale(0);
+  margin-left: 2px;
+}
+
+.active .indicator {
+  opacity: 1;
+  transform: scale(1);
+}
